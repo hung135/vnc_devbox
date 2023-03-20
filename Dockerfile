@@ -24,13 +24,11 @@ USER dockeruser
 
 ##### Install NetBeans #####
 
-WORKDIR /home/dockeruser/
-RUN sudo chown -R dockeruser:dockeruser .
 RUN wget -O netbeans.zip https://dlcdn.apache.org/netbeans/netbeans/17/netbeans-17-bin.zip \
     && unzip netbeans.zip \
     && rm netbeans.zip \
     && chmod +x netbeans/bin/netbeans \
-    && mkdir /home/dockeruser/netbeans \
+    && if [ ! -d "/home/dockeruser/netbeans" ]; then mkdir /home/dockeruser/netbeans; fi \
     && sudo cp -r netbeans/* /home/dockeruser/netbeans/ \
     && sudo chown -R dockeruser:dockeruser /home/dockeruser/netbeans \
     && sudo chmod -R 755 /home/dockeruser/netbeans
