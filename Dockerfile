@@ -15,7 +15,7 @@ RUN apt-get update -y \
     && rm netbeans.zip \
     && chmod +x netbeans/bin/netbeans \
     && mv netbeans /opt/
-
+RUN apt-get install -y openjdk-11-jdk
     
     
     
