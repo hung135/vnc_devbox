@@ -24,7 +24,7 @@ while true; do
       break
       ;;
     4)
-      sudo code --no-sandbox --user-data-dir=/home/dockeruser/.vscode --disable-gpu &
+      code --no-sandbox --user-data-dir=/home/dockeruser/.vscode --disable-gpu &
       break
       ;;
     q|Q)
