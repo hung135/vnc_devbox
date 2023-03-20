@@ -31,8 +31,7 @@ RUN wget -O netbeans.zip https://dlcdn.apache.org/netbeans/netbeans/17/netbeans-
     && rm netbeans.zip \
     && chmod +x netbeans/bin/netbeans
 
-RUN mv netbeans /home/dockeruser/ \
-    && sudo chown -R dockeruser:dockeruser /home/dockeruser/netbeans \
+RUN sudo chown -R dockeruser:dockeruser /home/dockeruser/netbeans \
     && sudo chmod -R 755 /home/dockeruser/netbeans
 
 
