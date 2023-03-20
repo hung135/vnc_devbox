@@ -31,6 +31,10 @@ RUN touch /root/.Xauthority
 COPY . .
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
+# Copy the start-menu.sh script to the container
+COPY start-menu.sh /
+RUN chmod +x /start-menu.sh
+
 EXPOSE 5901 
 ENV DISPLAY=:1
 
