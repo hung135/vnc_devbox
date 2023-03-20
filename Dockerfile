@@ -2,7 +2,8 @@ FROM debian:latest
 
 RUN apt-get update -y \
     && apt-get install -y \
-        xorg \
+        xorg 
+RUN apt-get install -y \
         libxrender1 \
         libxtst6 \
         libxi6 \
