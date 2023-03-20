@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  vmc_server:
+    build: .
+    volumes:
+      - /run/dbus/system_bus_socket:/run/dbus/system_bus_socket
+    ports:
+      - "5900:5900"
+      - "5901:5901"
+    environment:
+      - DISPLAY=:1
