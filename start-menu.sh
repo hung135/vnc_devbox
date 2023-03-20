@@ -19,7 +19,7 @@ while true; do
       break
       ;;
     3)
-      /opt/netbeans/bin/netbeans &
+      netbeans &
       break
       ;;
     4)
