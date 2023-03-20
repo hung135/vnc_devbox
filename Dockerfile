@@ -53,8 +53,7 @@ RUN wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor 
     && sudo apt-get install -y code
 
 
-WORKDIR /home/dockeruser/app
-COPY . .
+WORKDIR /home/dockeruser
 COPY start.sh /start.sh
 RUN sudo chmod +x /start.sh
 COPY start-menu.sh /start-menu.sh
