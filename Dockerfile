@@ -31,10 +31,10 @@ RUN wget -O netbeans.zip https://dlcdn.apache.org/netbeans/netbeans/17/netbeans-
     && rm netbeans.zip \
     && chmod +x netbeans/bin/netbeans
 
-RUN if [ ! -d "/home/dockeruser/netbeans" ]; then mkdir /home/dockeruser/netbeans; fi \
-    && sudo cp -r netbeans/* /home/dockeruser/netbeans/ \
+RUN mv netbeans /home/dockeruser/ \
     && sudo chown -R dockeruser:dockeruser /home/dockeruser/netbeans \
     && sudo chmod -R 755 /home/dockeruser/netbeans
+
 
 ##### Install OpenJFX #####
 
