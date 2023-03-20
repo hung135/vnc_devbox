@@ -29,7 +29,9 @@ RUN wget -O netbeans.zip https://dlcdn.apache.org/netbeans/netbeans/17/netbeans-
     && rm netbeans.zip \
     && chmod +x netbeans/bin/netbeans \
     && mkdir /home/dockeruser/netbeans \
-    && mv netbeans/* /home/dockeruser/netbeans/
+    && cp -r netbeans/* /home/dockeruser/netbeans/ \
+    && sudo chown -R dockeruser:dockeruser /home/dockeruser/netbeans \
+    && sudo chmod -R 755 /home/dockeruser/netbeans
 
 RUN wget -O openjfx.zip https://download2.gluonhq.com/openjfx/19.0.2.1/openjfx-19.0.2.1_linux-x64_bin-sdk.zip \
     && unzip -q openjfx.zip \
