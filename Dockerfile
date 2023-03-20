@@ -7,17 +7,14 @@ RUN apt-get install -y \
     libxi6 \
     tigervnc-standalone-server \
     tigervnc-common \
-    wget \
+    wget vim unzip \
     firefox-esr 
-RUN apt-get install transmission -y
-# Download NetBeans installer
-RUN wget https://download.netbeans.org/netbeans/8.2/final/bundles/netbeans-8.2-javase-linux.sh
-# Make the installer executable
-RUN chmod +x netbeans-8.2-javase-linux.sh
-# Run the installer
-RUN ./netbeans-8.2-javase-linux.sh
-# Clean up the installer
-RUN rm netbeans-8.2-javase-linux.sh
+RUN apt-get update -y \ 
+    && wget -O netbeans.zip https://dlcdn.apache.org/netbeans/netbeans/17/netbeans-17-bin.zip \
+    && unzip netbeans.zip \
+    && rm netbeans.zip \
+    && chmod +x netbeans/bin/netbeans \
+    && mv netbeans /opt/
 
     
     
