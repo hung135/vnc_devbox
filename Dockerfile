@@ -17,11 +17,13 @@ RUN apt-get update -y \
     && rm netbeans.zip \
     && chmod +x netbeans/bin/netbeans \
     && mv netbeans /opt/
-RUN apt-get install openjfx -y
 ENV PATH="/opt/netbeans/bin:${PATH}"
 RUN echo 'export PATH="/opt/netbeans/bin:${PATH}"' >> ~/.bashrc
 
 RUN apt-get install -y openjdk-11-jdk
+RUN wget https://gluonhq.com/download/javafx-16.0.1-linux-x64.deb && \
+    apt-get install -y ./javafx-16.0.1-linux-x64.deb && \
+    rm javafx-16.0.1-linux-x64.deb
 ################################################# install netbeans
 
     
