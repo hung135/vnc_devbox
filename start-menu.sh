@@ -16,7 +16,7 @@ while true; do
       break
       ;;
     2)
-      /home/dockeruser/bin/netbeans &
+      /home/dockeruser/netbeans/bin/netbeans &
       break
       ;;
     3)
