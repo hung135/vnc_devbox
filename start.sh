@@ -13,5 +13,5 @@ vncserver :1 -geometry $VNC_RESOLUTION -depth 24 -localhost no
 
 # Start a terminal session within the VNC environment
 export DISPLAY=:1
-xterm -geometry $VNC_RESOLUTION &
+xterm -geometry 800x600 &
 tail -f /dev/null
