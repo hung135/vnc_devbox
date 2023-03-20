@@ -7,11 +7,11 @@ mkdir -p /root/.vnc
 echo "mypassword" | vncpasswd -f > /root/.vnc/passwd
 chmod 600 /root/.vnc/passwd
 
-# Start the VNC server
-vncserver :1 -geometry 1280x800 -depth 24 -localhost no
+# Start the VNC server with the specified resolution
+VNC_RESOLUTION=${VNC_RESOLUTION:-1280x720}
+vncserver :1 -geometry $VNC_RESOLUTION -depth 24 -localhost no
 
 # Start a terminal session within the VNC environment
 export DISPLAY=:1
-xterm &
-#firefox-esr --width 1280 --height 800 & 
+xterm -geometry $VNC_RESOLUTION &
 tail -f /dev/null
