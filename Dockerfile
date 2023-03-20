@@ -21,9 +21,10 @@ ENV PATH="/opt/netbeans/bin:${PATH}"
 RUN echo 'export PATH="/opt/netbeans/bin:${PATH}"' >> ~/.bashrc
 
 RUN apt-get install -y openjdk-11-jdk
-RUN wget https://gluonhq.com/download/javafx-16.0.1-linux-x64.deb && \
-    apt-get install -y ./javafx-16.0.1-linux-x64.deb && \
-    rm javafx-16.0.1-linux-x64.deb
+RUN wget https://gluonhq.com/download/javafx-17.0.0.2-linux-x64.deb && \
+    apt-get install -y ./javafx-17.0.0.2-linux-x64.deb && \
+    rm javafx-17.0.0.2-linux-x64.deb
+
 ################################################# install netbeans
 
     
