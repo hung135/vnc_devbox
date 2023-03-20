@@ -6,6 +6,7 @@ services:
     volumes:
       - /run/dbus/system_bus_socket:/run/dbus/system_bus_socket
       - ./:/home/dockeruser/Desktop/
+    user: "${PUID}:${PGID}"
     ports:
       - "5901:5901"
     environment:
