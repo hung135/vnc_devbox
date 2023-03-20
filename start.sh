@@ -2,6 +2,7 @@
 
 # Create the .vnc directory
 mkdir -p /home/dockeruser/.vnc
+touch /home/dockeruser/.Xauthority
 
 # Set a password for the VNC server (optional)
 if [ -z "$VNC_PASSWORD" ]; then
