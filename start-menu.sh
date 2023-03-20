@@ -13,7 +13,7 @@ while true; do
 
   case $choice in
     1)
-      xterm -geometry 200x200
+      xterm -geometry 100x200
       ;;
     2)
       read -p "Do you want to launch Transmission? (y/n): " confirm
