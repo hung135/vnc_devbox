@@ -50,6 +50,13 @@ RUN wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor 
     && sudo apt-get update -y \
     && sudo apt-get install -y code
 
+RUN sudo chown -R dockeruser:dockeruser /home/dockeruser/.vnc \
+    && sudo chmod 755 /home/dockeruser/.vnc \
+    && sudo chmod 600 /home/dockeruser/.vnc/passwd \
+    && sudo chmod 755 /tmp/.X11-unix \
+    && sudo chown -R dockeruser:dockeruser /home/dockeruser/app
+
+
 
 WORKDIR /home/dockeruser/app
 COPY . .
