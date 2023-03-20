@@ -11,7 +11,7 @@ while true; do
 
   case $choice in
     1)
-      xterm -geometry "$VNC_RESOLUTION" &
+      xterm -geometry 800x600 &
       break
       ;;
     2)
