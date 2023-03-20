@@ -11,4 +11,4 @@ services:
       - DISPLAY=:1
       - VNC_RESOLUTION=${VNC_RESOLUTION:-1280x720}
       - GIT_URL=https://github.com/hung135/vnc_devbox.git
-    command: ["/start.sh"]
+    #command: ["/start.sh"]
