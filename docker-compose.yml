@@ -10,4 +10,5 @@ services:
     environment:
       - DISPLAY=:1
       - VNC_RESOLUTION=${VNC_RESOLUTION:-1280x720}
+      - GIT_URL=${GIT_URL:}
     command: ["/start.sh"]
