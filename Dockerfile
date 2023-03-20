@@ -28,7 +28,7 @@ RUN wget -O openjfx.zip https://download2.gluonhq.com/openjfx/19.0.2.1/openjfx-1
 
 ################################################# install netbeans
 
-    
+RUN apt-get install git -y
     
     
 WORKDIR /app
