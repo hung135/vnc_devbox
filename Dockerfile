@@ -55,11 +55,11 @@ RUN wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor 
 
 WORKDIR /home/dockeruser/app
 COPY . .
-COPY start.sh /home/dockeruser/start.sh
-RUN sudo chmod +x /home/dockeruser/start.sh
-COPY start-menu.sh /home/dockeruser/start-menu.sh
-RUN sudo chmod +x /home/dockeruser/start-menu.sh
+COPY start.sh /start.sh
+RUN sudo chmod +x /start.sh
+COPY start-menu.sh /start-menu.sh
+RUN sudo chmod +x /start-menu.sh
 
 EXPOSE 5901 
 ENV DISPLAY=:1
-CMD ["/home/dockeruser/start.sh"]
+CMD ["/start.sh"]
