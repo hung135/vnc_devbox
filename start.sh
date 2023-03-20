@@ -20,10 +20,7 @@ if [ -z "$GIT_URL" ]; then
   echo "No nothing to clone"
 else
   echo "Cloning URL provided: $GIT_URL"
-  cd app
   git clone $GIT_URL
-  cd ..
-  
 fi
 
 # Start a terminal session within the VNC environment
