@@ -46,9 +46,10 @@ RUN wget -O openjfx.zip https://download2.gluonhq.com/openjfx/19.0.2.1/openjfx-1
 
 RUN wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg \
     && sudo install -D -o dockeruser -g dockeruser -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg \
-    && sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list' \
+    && sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list' \
     && sudo apt-get update -y \
     && sudo apt-get install -y code
+
 
 WORKDIR /home/dockeruser/app
 COPY . .
