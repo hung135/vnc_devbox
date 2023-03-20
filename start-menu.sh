@@ -12,20 +12,16 @@ while true; do
 
   case $choice in
     1)
-      transmission-gtk &
-      break
+      transmission-gtk 
       ;;
     2)
-      /home/dockeruser/netbeans/bin/netbeans &
-      break
+      /home/dockeruser/netbeans/bin/netbeans 
       ;;
     3)
-      firefox-esr &
-      break
+      firefox-esr 
       ;;
     4)
-      code --no-sandbox --user-data-dir=/home/dockeruser/.vscode --disable-gpu &
-      break
+      code --no-sandbox --user-data-dir=/home/dockeruser/.vscode --disable-gpu 
       ;;
     q|Q)
       exit 0
