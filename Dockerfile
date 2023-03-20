@@ -24,6 +24,7 @@ USER dockeruser
 
 ##### Install NetBeans #####
 
+RUN sudo chown -R dockeruser:dockeruser .
 RUN wget -O netbeans.zip https://dlcdn.apache.org/netbeans/netbeans/17/netbeans-17-bin.zip \
     && unzip netbeans.zip \
     && rm netbeans.zip \
