@@ -18,7 +18,7 @@ vncserver :1 -geometry "$VNC_RESOLUTION" -depth 24 -localhost no
 
 # Start a terminal session within the VNC environment
 export DISPLAY=:1
-xterm -geometry "$VNC_RESOLUTION" -e "/start-menu.sh" &
+xterm -geometry 800x600 -e "/start-menu.sh" &
 
 # Keep the container running
 tail -f /dev/null
