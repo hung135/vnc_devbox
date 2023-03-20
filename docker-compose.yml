@@ -5,6 +5,7 @@ services:
     build: .
     volumes:
       - /run/dbus/system_bus_socket:/run/dbus/system_bus_socket
+      - ./:/home/dockeruser/Desktop/
     ports:
       - "5901:5901"
     environment:
