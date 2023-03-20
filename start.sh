@@ -1,17 +1,17 @@
 #!/bin/bash
 
 # Create the .vnc directory
-mkdir -p /root/.vnc
+mkdir -p /home/dockeruser/.vnc
 
 # Set a password for the VNC server (optional)
 if [ -z "$VNC_PASSWORD" ]; then
   echo "No VNC password provided, using default password 'password'"
-  echo "password" | vncpasswd -f > /root/.vnc/passwd
+  echo "password" | vncpasswd -f > /home/dockeruser/.vnc/passwd
 else
   echo "Setting VNC password..."
-  echo "$VNC_PASSWORD" | vncpasswd -f > /root/.vnc/passwd
+  echo "$VNC_PASSWORD" | vncpasswd -f > /home/dockeruser/.vnc/passwd
 fi
-chmod 600 /root/.vnc/passwd
+chmod 600 /home/dockeruser/.vnc/passwd
 
 # Start the VNC server
 vncserver :1 -geometry "$VNC_RESOLUTION" -depth 24 -localhost no
