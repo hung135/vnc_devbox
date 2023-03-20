@@ -18,6 +18,7 @@ RUN apt-get install -y \
         gpg \
         apt-transport-https \
         sudo \
+        transmission \
     && useradd -ms /bin/bash dockeruser \
     && echo "dockeruser ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
