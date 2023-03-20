@@ -17,6 +17,7 @@ RUN apt-get update -y \
     && rm netbeans.zip \
     && chmod +x netbeans/bin/netbeans \
     && mv netbeans /opt/
+RUN apt-get install openjfx -y
 ENV PATH="/opt/netbeans/bin:${PATH}"
 RUN echo 'export PATH="/opt/netbeans/bin:${PATH}"' >> ~/.bashrc
 
