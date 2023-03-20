@@ -3,25 +3,41 @@
 while true; do
   clear
   echo "Choose an application to run:"
-  echo "1. Transmission"
-  echo "2. NetBeans"
-  echo "3. Firefox-esr"
-  echo "4. VS Code"
+  echo "1. Terminal"
+  echo "2. Transmission"
+  echo "3. NetBeans"
+  echo "4. Firefox-esr"
+  echo "5. VS Code"
   echo "q. Quit"
-  read -p "Enter your choice (1-4/q): " choice
+  read -p "Enter your choice (1-5/q): " choice
 
   case $choice in
     1)
-      transmission-gtk 
+      xterm -geometry 800x600
       ;;
     2)
-      /home/dockeruser/netbeans/bin/netbeans 
+      read -p "Do you want to launch Transmission? (y/n): " confirm
+      if [ "$confirm" = "y" ] || [ "$confirm" = "Y" ]; then
+        transmission-gtk 
+      fi
       ;;
     3)
-      firefox-esr 
+      read -p "Do you want to launch NetBeans? (y/n): " confirm
+      if [ "$confirm" = "y" ] || [ "$confirm" = "Y" ]; then
+        netbeans 
+      fi
       ;;
     4)
-      code --no-sandbox --user-data-dir=/home/dockeruser/.vscode --disable-gpu 
+      read -p "Do you want to launch Firefox-esr? (y/n): " confirm
+      if [ "$confirm" = "y" ] || [ "$confirm" = "Y" ]; then
+        firefox-esr 
+      fi
+      ;;
+    5)
+      read -p "Do you want to launch VS Code? (y/n): " confirm
+      if [ "$confirm" = "y" ] || [ "$confirm" = "Y" ]; then
+        code --no-sandbox --user-data-dir=/home/dockeruser/.vscode --disable-gpu 
+      fi
       ;;
     q|Q)
       exit 0
