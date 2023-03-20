@@ -16,7 +16,7 @@ while true; do
       break
       ;;
     2)
-      /usr/local/netbeans-8.2/bin/netbeans &
+      /home/dockeruser/bin/netbeans &
       break
       ;;
     3)
