@@ -29,10 +29,15 @@ WORKDIR /home/dockeruser/
 RUN wget -O netbeans.zip https://dlcdn.apache.org/netbeans/netbeans/17/netbeans-17-bin.zip \
     && unzip netbeans.zip \
     && rm netbeans.zip \
-    && chmod +x netbeans/bin/netbeans
+    && chmod +x netbeans/bin/netbeans \
+    && mkdir -p /home/dockeruser/.vnc
 
 RUN sudo chown -R dockeruser:dockeruser /home/dockeruser/netbeans \
-    && sudo chmod -R 755 /home/dockeruser/netbeans
+    && sudo chmod -R 755 /home/dockeruser/netbeans \
+    && sudo chown -R dockeruser:dockeruser /home/dockeruser/.vnc \
+    && sudo chmod 755 /home/dockeruser/.vnc \
+    && echo "password" | vncpasswd -f > /home/dockeruser/.vnc/passwd \
+    && sudo chmod 600 /home/dockeruser/.vnc/passwd
 
 
 ##### Install OpenJFX #####
@@ -46,24 +51,16 @@ RUN wget -O openjfx.zip https://download2.gluonhq.com/openjfx/19.0.2.1/openjfx-1
 
 RUN wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg \
     && sudo install -D -o dockeruser -g dockeruser -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg \
-    && sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list' \
+    && sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list' \
     && sudo apt-get update -y \
     && sudo apt-get install -y code
-
-RUN sudo chown -R dockeruser:dockeruser /home/dockeruser/.vnc \
-    && sudo chmod 755 /home/dockeruser/.vnc \
-    && sudo chmod 600 /home/dockeruser/.vnc/passwd \
-    && sudo chmod 755 /tmp/.X11-unix \
-    && sudo chown -R dockeruser:dockeruser /home/dockeruser/app
-
-
 
 WORKDIR /home/dockeruser/app
 COPY . .
 COPY start.sh /home/dockeruser/start.sh
-RUN sudo chmod +x /home/dockeruser/start.sh
+RUN chmod +x /home/dockeruser/start.sh
 COPY start-menu.sh /home/dockeruser/start-menu.sh
-RUN sudo chmod +x /home/dockeruser/start-menu.sh
+RUN chmod +x /home/dockeruser/start-menu.sh
 
 EXPOSE 5901 
 ENV DISPLAY=:1
