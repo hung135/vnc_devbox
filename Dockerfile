@@ -21,7 +21,7 @@ ENV PATH="/opt/netbeans/bin:${PATH}"
 RUN echo 'export PATH="/opt/netbeans/bin:${PATH}"' >> ~/.bashrc
 
 RUN apt-get install -y openjdk-11-jdk
-RUN wget https://download2.gluonhq.com/openjfx/19.0.2/openjfx.zip && \
+RUN wget -O openjavafx https://download2.gluonhq.com/openjfx/19.0.2.1/openjfx-19.0.2.1_linux-x64_bin-sdk.zip && \
     unzip -q openjfx.zip && \
     mv javafx-sdk-19.0.2 /opt/javafx && \
     rm openjfx.zip
