@@ -27,5 +27,8 @@ RUN touch /root/.Xauthority
 COPY . .
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
-EXPOSE 5901
+EXPOSE 5901 
+ENV DISPLAY=:1
+
 CMD ["/start.sh"]
+#ENTRYPOINT ["/start.sh"]
