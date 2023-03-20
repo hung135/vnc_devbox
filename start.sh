@@ -16,6 +16,13 @@ chmod 600 /root/.vnc/passwd
 # Start the VNC server
 vncserver :1 -geometry "$VNC_RESOLUTION" -depth 24 -localhost no
 
+if [ -z "$GIT_URL" ]; then
+  echo "No nothing to clone"
+else
+  echo "Cloning URL provided"
+  git clone $GIT_URL
+fi
+
 # Start a terminal session within the VNC environment
 export DISPLAY=:1
 xterm -geometry 800x600 -e "/start-menu.sh" &
