@@ -26,7 +26,7 @@ fi
 
 # Start a terminal session within the VNC environment
 export DISPLAY=:1
-xterm -geometry 800x600 -e "/start-menu.sh" &
+xterm -geometry 800x600 -e "/start-menu.sh" 
 
 # Keep the container running
-tail -f /dev/null
+#tail -f /dev/null
