@@ -3,28 +3,32 @@
 while true; do
   clear
   echo "Choose an application to run:"
-  echo "1. Terminal"
-  echo "2. Transmission"
-  echo "3. NetBeans"
-  echo "4. Firefox-esr"
-  read -p "Enter your choice (1-4): " choice
+  echo "1. Transmission"
+  echo "2. NetBeans"
+  echo "3. Firefox-esr"
+  echo "4. VS Code"
+  echo "q. Quit"
+  read -p "Enter your choice (1-4/q): " choice
 
   case $choice in
     1)
-      xterm -geometry 800x600 &
-      break
-      ;;
-    2)
       transmission-gtk &
       break
       ;;
+    2)
+      /usr/local/netbeans-8.2/bin/netbeans &
+      break
+      ;;
     3)
-      netbeans &
+      firefox-esr &
       break
       ;;
     4)
-      firefox-esr &
+      sudo code --user-data-dir=/home/dockeruser/.vscode --disable-gpu &
       break
+      ;;
+    q|Q)
+      exit 0
       ;;
     *)
       echo "Invalid choice, please try again..."
